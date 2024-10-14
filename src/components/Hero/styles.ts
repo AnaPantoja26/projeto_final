@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { cores } from '../../styles'
 
 export const Imagem = styled.div`
-  width: 100%;
+  width: 1366px;
   height: 280px;
   display: block;
   background-repeat: no-repeat;

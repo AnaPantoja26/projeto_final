@@ -6,6 +6,7 @@ export const Fundo = styled.div`
   display: flex;
   padding-bottom: 40px;
   height: 186px;
+  width: 1366px;
 `
 export const Titulo = styled.h2`
   margin-right: 270px;

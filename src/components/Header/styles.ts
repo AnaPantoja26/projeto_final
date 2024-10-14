@@ -15,15 +15,17 @@ export const LogoImg = styled.img`
   width: 125px;
   height: 58px
   margin-top: 40px;
-  margin-left: 621px;
+  margin-left: 581px;
 `
 export const SubTitle = styled.h2`
   font-family: 'Roboto', sans-serif;
   font-weight: 900px;
   font-size: 36px;
+  line-height: 42px;
+  align-text: center;
   width: 539px;
   height: 84px;
   margin-top: 160px;
-  margin-left: 414px;
+  margin-left: 374px;
   text-align: center;
 `

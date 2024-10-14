@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Fundo = styled.div`
-  width: 100%;
+  width: 1366px;
   height: 298px;
   display: block;
   background-repeat: no-repeat;

@@ -39,13 +39,15 @@ export const Descricao = styled.p`
 `
 export const Botao = styled.button`
   background-color: ${cores.rosaEscuro};
-  color: ${cores.bege};
   margin-left: 7px;
   border: none;
   margin-top: 4px;
   padding: 4px;
   cursor: pointer;
-  text-decoration: none;
+  a {
+    text-decoration: none;
+    color: ${cores.bege};
+  }
 `
 export const Infos = styled.div`
   position: absolute;
