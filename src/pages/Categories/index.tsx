@@ -24,7 +24,7 @@ import { useState } from 'react'
 
 const Categorias = () => {
   const [modalEstaAberto, setModalEstaAberto] = useState(false)
-  const [buttonText, setButtonText] = useState('Adicionar ao carrinho')
+  const [buttonText, setButtonText] = useState('')
 
   return (
     <>

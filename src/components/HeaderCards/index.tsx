@@ -1,4 +1,5 @@
 import Produto from '../../models/Produto'
+// import { Produto } from '../../pages/Home'
 import Cards from '../Cards'
 import { List, ListCard } from './styles'
 
