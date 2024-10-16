@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import Footer from '../../components/Footer'
 import Header from '../../components/Header'
 import HeaderCards from '../../components/HeaderCards'
+// import Produto from '../../models/Produto'
 
 export type Produto = {
   id: number
@@ -27,7 +28,7 @@ const Home = () => {
   const [cardsHome, setCardsHome] = useState<Produto[]>([])
 
   useEffect(() => {
-    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes/cardsHome')
+    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes/')
       .then((res) => res.json())
       .then((res) => setCardsHome(res))
   }, [])
