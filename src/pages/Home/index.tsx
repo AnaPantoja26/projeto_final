@@ -1,41 +1,42 @@
-import Footer from '../../components/Footer'
+import { useEffect, useState } from 'react'
 import Header from '../../components/Header'
 import HeaderCards from '../../components/HeaderCards'
-import Produto from '../../models/Produto'
+import Footer from '../../components/Footer'
 
-const cardsHome: Produto[] = [
-  {
-    id: 1,
-    infos: ['Destaque da semana', 'italiana']
-  },
-  {
-    id: 2,
-    infos: ['italiana']
-  },
-  {
-    id: 3,
-    infos: ['italiana']
-  },
-  {
-    id: 4,
-    infos: ['italiana']
-  },
-  {
-    id: 5,
-    infos: ['italiana']
-  },
-  {
-    id: 6,
-    infos: ['italiana']
+export type Produto = {
+  id?: number
+  titulo: string
+  destacado: string
+  tipo: string
+  avaliacao: string
+  descricao: string
+  capa: string
+  cardapio: {
+    foto: string
+    preco?: number
+    id?: number
+    nome: string
+    descricao: string
+    porcao: string
   }
-]
+}
 
-const Home = () => (
-  <>
-    <Header />
-    <HeaderCards produtos={cardsHome} />
-    <Footer />
-  </>
-)
+const Home = () => {
+  const [cardsHome, setCardsHome] = useState([])
+
+  useEffect(() => {
+    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes/1')
+      .then((res) => res.json())
+      .then((res) => setCardsHome(res))
+  })
+
+  return (
+    <>
+      <Header />
+      <HeaderCards produtos={cardsHome} />
+      <Footer />
+    </>
+  )
+}
 
 export default Home
