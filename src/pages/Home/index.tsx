@@ -3,27 +3,15 @@ import Footer from '../../components/Footer'
 import Header from '../../components/Header'
 import HeaderCards from '../../components/HeaderCards'
 
-export type Produto = {
+type Produto = {
   id: number
   titulo: string
-  destacado: boolean
+  destaque: boolean
   tipo: string
-  avaliacao?: number
+  avaliacao: number
   descricao: string
   capa: string
-  cardapio: [
-    {
-      foto: string
-      preco?: number
-      id: number
-      nome: string
-      descricao: string
-      porcao: string
-    }
-  ]
 }
-
-const cardsHome: Produto[] = []
 
 const Home = () => {
   const [cardsHome, setCardsHome] = useState<Produto[]>([])
@@ -37,7 +25,7 @@ const Home = () => {
   return (
     <>
       <Header />
-      <HeaderCards produtos={cardsHome} />
+      <HeaderCards />
       <Footer />
     </>
   )

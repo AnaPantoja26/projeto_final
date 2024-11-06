@@ -1,30 +1,16 @@
-import { Produto } from '../../pages/Home'
 import Cards from '../Cards'
 import { List, ListCard } from './styles'
 
-export type Props = {
-  produtos: Produto[]
-}
-
-const HeaderCards = ({ produtos }: Props) => (
+const HeaderCards = () => (
   <section>
     <ListCard>
       <List>
-        {produtos.map((produto) => (
-          <Cards
-            key={produto.id}
-            titulo={produto.titulo}
-            destacado={produto.destacado}
-            tipo={produto.tipo}
-            avaliacao={produto.avaliacao}
-            descricao={produto.descricao}
-            capa={produto.capa}
-            cardapio={produto.cardapio}
-          />
-        ))}
+        <Cards title="" tipos={[]} avaliacao={1} descricao="" capa="" />
+        <Cards title="" tipos={[]} avaliacao={1} descricao="" capa="" />
+        <Cards title="" tipos={[]} avaliacao={1} descricao="" capa="" />
+        <Cards title="" tipos={[]} avaliacao={1} descricao="" capa="" />
       </List>
     </ListCard>
   </section>
 )
-
 export default HeaderCards
