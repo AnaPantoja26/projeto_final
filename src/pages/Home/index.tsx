@@ -6,18 +6,28 @@ import HeaderCards from '../../components/HeaderCards'
 type Produto = {
   id: number
   titulo: string
-  destaque: boolean
+  destacado: string
   tipo: string
   avaliacao: number
   descricao: string
   capa: string
+  cardapio: [
+    {
+      foto: string
+      preco?: number
+      id: number
+      nome: string
+      descricao: string
+      porcao: string
+    }
+  ]
 }
 
 const Home = () => {
   const [cardsHome, setCardsHome] = useState<Produto[]>([])
 
   useEffect(() => {
-    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes/1')
+    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
       .then((res) => res.json())
       .then((res) => setCardsHome(res))
   }, [])
@@ -25,7 +35,7 @@ const Home = () => {
   return (
     <>
       <Header />
-      <HeaderCards />
+      <HeaderCards produtos={cardsHome} />
       <Footer />
     </>
   )
