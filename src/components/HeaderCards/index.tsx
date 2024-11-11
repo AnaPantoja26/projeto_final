@@ -7,23 +7,23 @@ export type Props = {
 }
 
 const HeaderCards = ({ produtos }: Props) => (
-  <section>
-    <ListCard>
-      <List>
-        {produtos.map((produto) => (
-          <Cards
-            key={produto.id}
-            titulo={produto.titulo}
-            destacado={produto.destacado}
-            tipo={produto.tipo}
-            avaliacao={produto.avaliacao}
-            descricao={produto.descricao}
-            capa={produto.capa}
-          />
-        ))}
-      </List>
-    </ListCard>
-  </section>
+  // <section>
+  <ListCard>
+    <List>
+      {produtos.map((produto) => (
+        <Cards
+          key={produto.id}
+          titulo={produto.titulo}
+          destacado={produto.destacado}
+          tipo={produto.tipo}
+          avaliacao={produto.avaliacao}
+          descricao={produto.descricao}
+          capa={produto.capa}
+        />
+      ))}
+    </List>
+  </ListCard>
+  // </section>
 )
 
 export default HeaderCards

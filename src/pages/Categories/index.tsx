@@ -2,14 +2,8 @@ import Footer from '../../components/Footer'
 import HeaderCategories from '../../components/HeaderCategories'
 import Hero from '../../components/Hero'
 import {
-  Botao,
-  CardCategories,
-  Colunas,
-  Imagem,
   Modal,
   ModalContent,
-  Paragrafo,
-  Titulo,
   Image,
   TituloCard,
   ParagrafoCard,
@@ -17,20 +11,47 @@ import {
   HeaderCard,
   BotaoCard
 } from './styles'
-import pizza from '../../assets/images/pizza marguerita.png'
 import pizza3 from '../../assets/images/pizza marguerita 3.png'
 import fechar from '../../assets/images/close.png'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { CardCategories } from '../../components/CardsCategories/styles'
+
+type Produto = {
+  id: number
+  titulo: string
+  destacado: string
+  tipo: string
+  avaliacao: number
+  descricao: string
+  capa: string
+  cardapio: [
+    {
+      foto: string
+      preco?: number
+      id: number
+      nome: string
+      descricao: string
+      porcao: string
+    }
+  ]
+}
 
 const Categorias = () => {
+  const [cardsCategories, setCardsCategories] = useState<Produto[]>([])
   const [modalEstaAberto, setModalEstaAberto] = useState(false)
-  const [buttonText, setButtonText] = useState('Adicionar ao carrinho')
+  // const [buttonText, setButtonText] = useState('Adicionar ao carrinho')
+
+  useEffect(() => {
+    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes/')
+      .then((res) => res.json())
+      .then((res) => setCardsCategories(res))
+  }, [])
 
   return (
     <>
       <HeaderCategories />
-      <Hero />
-      <Modal className={modalEstaAberto ? 'visivel' : ''}>
+      <Hero produtos={cardsCategories} />
+      {/* <Modal className={modalEstaAberto ? 'visivel' : ''}>
         <ModalContent className="container">
           <HeaderCard>
             <img
@@ -65,105 +86,8 @@ const Categorias = () => {
           </ModalCard>
         </ModalContent>
         <div className="overlay"></div>
-      </Modal>
-      <Colunas>
-        <CardCategories>
-          <Imagem src={pizza} alt="Pizza de Marguerita" />
-          <Titulo>Pizza Marguerita</Titulo>
-          <Paragrafo>
-            A clássica Marguerita: molho de tomate suculento, mussarela
-            derretida, manjericão fresco e um toque de azeite. Sabor e
-            simplicidade!
-          </Paragrafo>
-          <Botao
-            onMouseEnter={() => setButtonText('Mais detalhes')}
-            onMouseLeave={() => setButtonText('Adicionar ao carrinho')}
-            onClick={() => setModalEstaAberto(true)}
-          >
-            {buttonText}
-          </Botao>
-        </CardCategories>
-        <CardCategories>
-          <Imagem src={pizza} alt="Pizza de Marguerita" />
-          <Titulo>Pizza Marguerita</Titulo>
-          <Paragrafo>
-            A clássica Marguerita: molho de tomate suculento, mussarela
-            derretida, manjericão fresco e um toque de azeite. Sabor e
-            simplicidade!
-          </Paragrafo>
-          <Botao
-            onMouseEnter={() => setButtonText('Mais detalhes')}
-            onMouseLeave={() => setButtonText('Adicionar ao carrinho')}
-            onClick={() => setModalEstaAberto(true)}
-          >
-            {buttonText}
-          </Botao>
-        </CardCategories>
-        <CardCategories>
-          <Imagem src={pizza} alt="Pizza de Marguerita" />
-          <Titulo>Pizza Marguerita</Titulo>
-          <Paragrafo>
-            A clássica Marguerita: molho de tomate suculento, mussarela
-            derretida, manjericão fresco e um toque de azeite. Sabor e
-            simplicidade!
-          </Paragrafo>
-          <Botao
-            onMouseEnter={() => setButtonText('Mais detalhes')}
-            onMouseLeave={() => setButtonText('Adicionar ao carrinho')}
-            onClick={() => setModalEstaAberto(true)}
-          >
-            {buttonText}
-          </Botao>
-        </CardCategories>
-        <CardCategories>
-          <Imagem src={pizza} alt="Pizza de Marguerita" />
-          <Titulo>Pizza Marguerita</Titulo>
-          <Paragrafo>
-            A clássica Marguerita: molho de tomate suculento, mussarela
-            derretida, manjericão fresco e um toque de azeite. Sabor e
-            simplicidade!
-          </Paragrafo>
-          <Botao
-            onMouseEnter={() => setButtonText('Mais detalhes')}
-            onMouseLeave={() => setButtonText('Adicionar ao carrinho')}
-            onClick={() => setModalEstaAberto(true)}
-          >
-            {buttonText}
-          </Botao>
-        </CardCategories>
-        <CardCategories>
-          <Imagem src={pizza} alt="Pizza de Marguerita" />
-          <Titulo>Pizza Marguerita</Titulo>
-          <Paragrafo>
-            A clássica Marguerita: molho de tomate suculento, mussarela
-            derretida, manjericão fresco e um toque de azeite. Sabor e
-            simplicidade!
-          </Paragrafo>
-          <Botao
-            onMouseEnter={() => setButtonText('Mais detalhes')}
-            onMouseLeave={() => setButtonText('Adicionar ao carrinho')}
-            onClick={() => setModalEstaAberto(true)}
-          >
-            {buttonText}
-          </Botao>
-        </CardCategories>
-        <CardCategories>
-          <Imagem src={pizza} alt="Pizza de Marguerita" />
-          <Titulo>Pizza Marguerita</Titulo>
-          <Paragrafo>
-            A clássica Marguerita: molho de tomate suculento, mussarela
-            derretida, manjericão fresco e um toque de azeite. Sabor e
-            simplicidade!
-          </Paragrafo>
-          <Botao
-            onMouseEnter={() => setButtonText('Mais detalhes')}
-            onMouseLeave={() => setButtonText('Adicionar ao carrinho')}
-            onClick={() => setModalEstaAberto(true)}
-          >
-            {buttonText}
-          </Botao>
-        </CardCategories>
-      </Colunas>
+      </Modal> */}
+      <CardCategories />
       <Footer />
     </>
   )
